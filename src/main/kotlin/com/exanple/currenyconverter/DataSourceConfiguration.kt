@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class DataSourceConfiguration {
 
-//    @Bean
-//    fun sessionFactory(): SessionFactory {
-//        return org.hibernate.cfg.Configuration()
-//                .addAnnotatedClass(Fee::class.java)
-//                .configure()
-//                .buildSessionFactory()
-//    }
+    @Bean
+    fun sessionFactory(): SessionFactory {
+        return org.hibernate.cfg.Configuration()
+                .addAnnotatedClass(Fee::class.java)
+                .configure()
+                .buildSessionFactory()
+    }
 }
