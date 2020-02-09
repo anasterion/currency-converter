@@ -1,9 +1,9 @@
 package com.exanple.currenyconverter.feeseditor.controllers
 
-import com.exanple.currenyconverter.feeseditor.daos.FeesEditorDao
 import com.exanple.currenyconverter.feeseditor.data.Fee
 import com.exanple.currenyconverter.feeseditor.facades.FeesEditorFacade
 import com.exanple.currenyconverter.helpers.CurrencyProvider
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
@@ -24,7 +24,9 @@ class FeesEditorController(private val feesEditorFacade: FeesEditorFacade) {
     @PostMapping("/add")
     fun addFee(@RequestBody data: Fee): ResponseEntity<String> {
         feesEditorFacade.addFee(data)
-
         return ResponseEntity.ok("")
     }
+
+    @GetMapping("/fees-list")
+    fun getFeesList() = ResponseEntity(feesEditorFacade.getFeesList(), HttpStatus.OK)
 }

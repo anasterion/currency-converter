@@ -1,5 +1,6 @@
 package com.exanple.currenyconverter.helpers
 
+import com.exanple.currenyconverter.feeseditor.data.Fee
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ObjectNode
 import com.fasterxml.jackson.module.kotlin.convertValue

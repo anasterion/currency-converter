@@ -11,8 +11,21 @@ class FeesEditorDaoImpl(private val sessionFactory: SessionFactory) : FeesEditor
     override fun addFee(data: Fee) {
         val session = sessionFactory.openSession()
         val transaction = session.beginTransaction()
-        session.save(data)
-        transaction.commit()
-        session.close()
+        session.use {
+            it.save(data)
+            transaction.commit()
+        }
+    }
+
+    override fun getFeesList(): List<Fee> {
+        val session = sessionFactory.openSession()
+        var fees: List<Fee> = emptyList()
+
+        session.use {
+            val query = it.createQuery("from Fee", Fee::class.java)
+            fees = query.list()
+        }
+
+        return fees
     }
 }

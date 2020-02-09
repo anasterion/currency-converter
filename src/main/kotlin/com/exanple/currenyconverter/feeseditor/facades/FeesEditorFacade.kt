@@ -5,4 +5,6 @@ import com.exanple.currenyconverter.feeseditor.data.Fee
 interface FeesEditorFacade {
 
     fun addFee(data: Fee)
+
+    fun getFeesList(): List<Fee>
 }

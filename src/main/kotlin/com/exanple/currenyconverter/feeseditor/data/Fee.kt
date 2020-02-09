@@ -9,10 +9,10 @@ data class Fee(
         val id: Long = 0,
 
         @Column(name = "base")
-        val base: String,
+        val base: String = "",
 
         @Column(name = "to_currency")
-        val toCurrency: String,
+        val toCurrency: String = "",
 
         @Column(name = "fee")
         var fee: Double? = null)
